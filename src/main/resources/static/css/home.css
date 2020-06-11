@@ -1,0 +1,57 @@
+.list-group-item:hover{
+    background-color: aliceblue;
+    cursor:pointer;
+}
+.list-group-item a{
+    text-decoration: none;
+}
+#article-list .overhead{
+    position: relative;
+    overflow: hidden;
+}
+#article-list .overhead:before{
+    display: block;
+    content: "置顶";
+    position: absolute;
+    right: -30px;
+    top: -7px;
+    padding: 15px 25px 0;
+    border: 1px silver solid;
+    text-align: center;
+    transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    /*background-color: rgb(126, 211, 33);*/
+}
+
+#article-list .list-group-item{
+    margin-bottom: 2px;
+}
+/*标题*/
+#article-list .list-group-item .list-group-item-heading a{
+    text-decoration:none;
+}
+/*内容*/
+#article-list .list-group-item .list-group-item-text{
+    height: 90px;
+    margin-bottom: 10px;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 5;
+    overflow: hidden;
+}
+/*日期时间*/
+#article-list .list-group-item .row div:first-child span{
+    display: inline-block;
+    height:45px;
+    line-height: 45px;
+    margin-left: 4px;
+}
+#article-list .list-group-item .row div:last-child span{
+    height: 45px;
+    line-height: 45px;
+    margin-right: 4px;
+    margin-left: 4px;
+}

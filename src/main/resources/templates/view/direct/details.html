@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>文章详情</title>
+    <div th:replace="~{common/baseimport :: baseimport}"></div>
+    <link rel="stylesheet" th:href="@{/css/details.css}">
+    <link rel="stylesheet" th:href="@{/css/home.css}">
+    <link rel="stylesheet" th:href="@{/editor/css/editormd.css}"/>
+    <script th:src="@{/editor/lib/marked.min.js}"></script>
+    <script th:src="@{/editor/lib/prettify.min.js}"></script>
+    <script th:src="@{/editor/lib/raphael.min.js}"></script>
+    <script th:src="@{/editor/lib/underscore.min.js}"></script>
+    <script th:src="@{/editor/lib/sequence-diagram.min.js}"></script>
+    <script th:src="@{/editor/lib/flowchart.min.js}"></script>
+    <script th:src="@{/editor/lib/jquery.flowchart.min.js}"></script>
+    <script th:src="@{/editor/js/editormd.js}"></script>
+</head>
+<script type="application/javascript">
+
+</script>
+
+<body>
+<div th:replace="~{common/header :: header}"></div>
+<main role="main" class="flex-shrink-0">
+    <div class="container" style="margin-top: 10px">
+        <div class="row">
+            <div th:replace="~{common/homebase :: homebase}"></div>
+            <div class="col-sm-12 col-md-9" id="article-list">
+                <div class="page-header" id="article-info">
+
+                </div>
+                <!--文章内容-->
+                <div id="article-content">
+                    <textarea style="display:none;" placeholder="markdown语言"></textarea>
+                </div>
+                <div id="article-comment">
+                    <div id="reply-content" style="overflow: hidden;clear: both;">
+                        <textarea class="form-control" rows="3" style="resize:none;"></textarea>
+                        <button type="button" class="btn btn-danger" style="float: right;margin-top: 5px;" onclick="publishComment()">发表评论</button>
+                    </div>
+                    <div id="comment-content">
+
+
+                    </div>
+                    <div id="paging">
+
+                    </div>
+                    <input type="hidden" id="save-articleId"/>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+<!--回复模态框-->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel"></h4>
+            </div>
+            <div class="modal-body">
+                <textarea class="form-control" rows="3" style="resize:none;" id="modal-textarea"></textarea>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal" id="replyModalId">关闭</button>
+                <button type="button" class="btn btn-primary" id="replyBtn" onclick="modalSaveBtn()">回复</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div th:replace="~{common/footer :: footer}"></div>
+</body>
+<script type="text/javascript" th:src="@{/js/direct/details.js}"></script>
+<script type="text/javascript" th:src="@{/js/common/homebase.js}"></script>
+<script type="text/javascript" th:src="@{/js/common/paging.js}"></script>
+</html>

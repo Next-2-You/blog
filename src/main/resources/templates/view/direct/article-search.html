@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>文章页</title>
+    <div th:replace="~{common/baseimport :: baseimport}"></div>
+    <link rel="stylesheet" th:href="@{/css/article-search.css}">
+</head>
+<script type="application/javascript">
+
+</script>
+
+<body>
+<div th:replace="~{common/header :: header}"></div>
+<main role="main" class="flex-shrink-0">
+    <div class="container" style="margin-top: 10px;" id="article-search">
+        <div class="row" id="search-header">
+            <div class="col-sm-8 col-md-8">
+                <ul class="nav nav-pills" id="sort-info">
+                    <li role="presentation" class="" sort="" style="background-color:#eee">
+                        <a href="#">综合排序·
+                        </a>
+                    </li>
+                    <li role="presentation" sort="sort=goodTimes,desc&sort=commentTimes,desc&sort=viewTimes,desc">
+                        <a href="#">热门文章
+                            ·
+                        </a>
+                    </li>
+                    <li role="presentation" sort="sort=createtime,desc">
+                        <a href="#">最新发布
+                            ·
+                        </a>
+                    </li>
+                    <li role="presentation" class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                            <span id="show-limit">时间不限</span> <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1" id="time-limit">
+                            <li limitTimeType="0"><a href="#">时间不限</a></li>
+                            <li limitTimeType="1"><a href="#">最近一天</a></li>
+                            <li limitTimeType="2"><a href="#">最近一周</a></li>
+                            <li limitTimeType="3"><a href="#">最近一个月</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-sm-4 col-md-4">
+                <span id="totalCount"></span>
+            </div>
+        </div>
+        <div class="row" id="search-middle">
+            <div class="list-group">
+            </div>
+        </div>
+        <div class="row" id="paging">
+
+        </div>
+    </div>
+</main>
+<div th:replace="~{common/footer :: footer}"></div>
+</body>
+<script type="text/javascript" th:src="@{/js/direct/article-search.js}"></script>
+<script type="text/javascript" th:src="@{/js/common/paging.js}"></script>
+</html>

@@ -1,0 +1,20 @@
+
+
+/*分类管理*/
+#sort-show>div{
+    clear: both;
+    overflow: hidden;
+}
+#sort-show h3{
+    display: inline-block;
+    float: left
+}
+#sort-show>div>div{
+    display: inline-block;
+    float: right;
+    text-align: center;
+    line-height: 31.4px;
+}
+#sort-show a{
+    text-decoration: none;
+}

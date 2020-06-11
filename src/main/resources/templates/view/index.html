@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <div th:replace="~{common/baseimport :: baseimport}"></div>
+    <link rel="stylesheet" th:href="@{/css/index.css}">
+</head>
+<body>
+<div th:replace="~{common/header :: header}"></div>
+<main role="main" class="flex-shrink-0">
+    <div class="container" style="margin-top: 10px">
+        <div class="row">
+            <div class="col-sm-12 col-md-8" id="index-left">
+                <div class="list-group">
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-4" id="index-right">
+                    <div class="panel panel-info">
+                        <!-- Default panel contents -->
+                        <div class="panel-heading">
+                            <span class="glyphicon glyphicon-fire" aria-hidden="true"></span>&nbsp;热门作者
+                            <a href="/search/author">&raquo;</a>
+                        </div>
+                        <!-- List group -->
+                        <ul class="list-group" id="user-hot">
+                        </ul>
+                    </div>
+                    <div class="panel panel-info">
+                        <!-- Default panel contents -->
+                        <div class="panel-heading">
+                            <span class="glyphicon glyphicon-fire" aria-hidden="true"></span>&nbsp;热门文章
+                            <a href="/search/article">&raquo;</a>
+                        </div>
+                        <!-- List group -->
+                        <ul class="list-group" id="article-hot">
+                        </ul>
+                    </div>
+                    <div class="panel panel-info">
+                        <!-- Default panel contents -->
+                        <div class="panel-heading">
+                            <span class="glyphicon glyphicon-fire" aria-hidden="true"></span>&nbsp;热门标签
+<!--                            <a href="">&raquo;</a>-->
+                        </div>
+                        <!-- List group -->
+                        <ul class="list-group" id="tag-hot">
+                        </ul>
+                    </div>
+            </div>
+        </div>
+    </div>
+</main>
+<div th:replace="~{common/footer :: footer}"></div>
+</body>
+<script type="text/javascript" th:src="@{/js/index.js}"></script>
+</html>

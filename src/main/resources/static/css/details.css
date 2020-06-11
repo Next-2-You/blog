@@ -1,0 +1,111 @@
+.list-group-item:hover{
+    background-color: aliceblue;
+    cursor:pointer;
+}
+.list-group-item a{
+    text-decoration: none;
+}
+/*日期时间*/
+.page-header>span:nth-child(2){
+    color:#858585;
+}
+/*浏览量*/
+.page-header>span:nth-child(3){
+    color:#858585;
+    margin-left: 35px;
+}
+/*收藏*/
+.page-header a{
+    text-decoration:none;
+}
+.page-header a span{
+    margin-left: 35px;
+}
+/*分类*/
+.page-header div{
+    margin-top: 10px;
+}
+.page-header div a{
+    margin-left: 10px;
+}
+
+/*评论板块*/
+@media screen and (max-width: 400px) {
+    #comment-content img {
+        max-width:100%;max-height:100%;
+    }
+}
+@media screen and (min-width: 401px){
+    #comment-content img {
+        max-width:50%;max-height:50%;
+    }
+}
+/*评论*/
+#comment-content{
+    margin:10px 0;
+}
+/*一级评论头像*/
+#comment-content>div>div:first-child{
+    padding: 0 2px;
+    text-align: center;
+}
+#comment-content>div>div img{
+    width:auto;
+    height:auto;
+}
+/*评论属性和内容板块*/
+#comment-content>div>div:last-child{
+    padding-left: 0px;
+}
+/*一级评论属性*/
+.source>div:first-child{
+    overflow: hidden;
+    clear: both;
+}
+.source>div:first-child>div:first-child{
+    float: left;
+}
+/*时间*/
+.source>div:first-child>div:first-child>span{
+    margin-left: 3px;
+}
+.source>div:first-child>div:last-child{
+    float: right;
+}
+
+/*一级评论内容*/
+.source>div:last-child{
+    margin: 10px 0;
+}
+
+/*评论回复*/
+.reply{
+    border-left: 2px solid;
+    padding-left: 4px;
+}
+.reply>div{
+    padding: 0px;
+    margin: 0 0 5px 0;
+}
+.reply>div>div:first-child{
+    padding: 0px;
+    text-align: center;
+}
+.reply>div>div:first-child img{
+    width:auto;height:auto;
+}
+.reply>div>div:last-child{
+    padding: 0px;
+}
+/*时间*/
+.reply>div>div:last-child>div:first-child>span{
+    margin: 0 10px;
+}
+/*回复*/
+.reply>div>div:last-child>div:first-child a:last-child{
+    margin: 0px;
+    padding: 0px;
+}
+
+
+

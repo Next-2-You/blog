@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>公共左侧导航</title>
+</head>
+<body>
+<div th:fragment="homebase">
+    <div class="col-sm-12 col-md-3">
+        <div class="row">
+            <div class="thumbnail" id="user-info">
+            </div>
+        </div>
+        <div class="row" style="margin-top: 10px">
+            <div class="panel panel-info">
+                <!-- Default panel contents -->
+                <div class="panel-heading">
+                    最新文章
+                </div>
+                <!-- List group -->
+                <ul class="list-group" id="article-new">
+
+                </ul>
+            </div>
+        </div>
+        <div class="row" style="margin-top: 10px">
+            <div class="panel panel-info">
+                <!-- Default panel contents -->
+                <div class="panel-heading">
+                    分类专栏
+                </div>
+                <!-- List group -->
+                <ul class="list-group" id="article-sort">
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

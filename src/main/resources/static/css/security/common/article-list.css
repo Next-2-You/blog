@@ -1,0 +1,54 @@
+.article-list{
+    clear: both;
+    overflow: hidden;
+}
+@media screen and (max-width: 560px) {
+    .article-option{
+        float:left;
+        text-align: center;
+    }
+}
+@media screen and (min-width: 561px){
+    .article-option{
+        float:right;
+        text-align: center;
+        line-height: 46.6px;
+    }
+}
+.article-attribute{
+    float: left;
+    text-align: center;
+}
+.article-attribute span:not(:first-child){
+    height: 45px;
+    line-height: 45px;
+    margin-right: 4px;
+    margin-left: 4px;
+}
+.article-attribute span:first-child{
+    display: inline-block;
+    height:45px;
+    line-height: 45px;
+    margin: 0 4px 0;
+}
+.article-option>div{
+    display: inline-block;
+}
+.article-option>div:first-child{
+    margin-right: 4px;
+}
+
+.article-option div a{
+    text-decoration:none;
+    display: inline-block;
+    margin-right: 4px;
+}
+.article-option div a span{
+    margin-right: 2px;
+    display: inline-block;
+    line-height: 16px;
+}
+
+#article-show>div>h3:hover{
+    cursor: pointer;
+}

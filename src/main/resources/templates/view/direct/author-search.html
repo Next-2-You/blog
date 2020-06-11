@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>作者页</title>
+    <div th:replace="~{common/baseimport :: baseimport}"></div>
+    <link rel="stylesheet" th:href="@{/css/author-search.css}">
+</head>
+<script type="application/javascript">
+
+</script>
+
+<body>
+<div th:replace="~{common/header :: header}"></div>
+<main role="main" class="flex-shrink-0">
+    <div class="container" style="margin-top: 10px">
+        <div class="row bg-info " id="title-panel">
+            <div class="col-sm-6 col-md-9">
+                <h5>作者列表</h5>
+            </div>
+            <div class="col-sm-6 col-md-3">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Search for author" id="search-input">
+                    <span class="input-group-btn">
+                    <button class="btn btn-default" type="button" onclick="getSearch()">搜索</button>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div id="author-search">
+
+        </div>
+
+        <div class="row" id="paging" >
+        </div>
+    </div>
+</main>
+<div th:replace="~{common/footer :: footer}"></div>
+</body>
+<script type="text/javascript" th:src="@{/js/direct/author-search.js}"></script>
+<script type="text/javascript" th:src="@{/js/common/paging.js}"></script>
+</html>

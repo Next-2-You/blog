@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>博客管理</title>
+    <div th:replace="~{common/baseimport :: baseimport}"></div>
+    <link rel="stylesheet" th:href="@{/css/manage.css}">
+    <link rel="stylesheet" th:href="@{/css/security/common/article-list.css}">
+</head>
+<script type="application/javascript">
+    // $(function(){
+    //     $('#myTabs a').click(function (e) {
+    //         e.preventDefault()
+    //         $(this).tab('show')
+    //     })
+    // })
+</script>
+
+<body>
+<div th:replace="~{common/header :: header}"></div>
+<main role="main" class="flex-shrink-0">
+    <div class="container" style="margin-top: 10px">
+       <div class="row">
+           <div class="col-sm-12 col-md-3">
+               <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                   <div class="panel panel-default">
+                       <div class="panel-heading" role="tab" id="headingOne">
+                           <h4 class="panel-title">
+                               <a href="/edit" target="_blank">
+                                   写博客
+                               </a>
+                           </h4>
+                       </div>
+                   </div>
+                   <div class="panel panel-default">
+                       <div class="panel-heading" role="tab" id="headingTwo">
+                           <h4 class="panel-title">
+                               <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                   文章管理<span class="caret"></span>
+                               </a>
+                           </h4>
+                       </div>
+                       <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                           <ul class="list-group" id="article-type">
+                               <li class="list-group-item">全部</li>
+                               <li class="list-group-item" articleType="0">公开</li>
+                               <li class="list-group-item" articleType="1">私密</li>
+                           </ul>
+                       </div>
+                   </div>
+                   <div class="panel panel-default">
+                       <div class="panel-heading" role="tab" id="headingThree">
+                           <h4 class="panel-title">
+                               <a href="javascript:void(0)" onclick="sortmanage(0,10)">
+                                   分类管理
+                               </a>
+                           </h4>
+                       </div>
+                   </div>
+               </div>
+           </div>
+           <div class="col-sm-12 col-md-9">
+               <div id="result">
+               </div>
+               <div id="paging">
+
+               </div>
+           </div>
+       </div>
+    </div>
+    <!--分类模态框-->
+    <div class="modal fade" id="sortModal" tabindex="-1" role="dialog" aria-labelledby="sortModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="sortModalLabel">修改分类名</h4>
+                </div>
+                <div class="modal-body">
+                    <input type="text" class="form-control" placeholder="请输入分类名">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal" id="sortModalClose">关闭</button>
+                    <button type="button" class="btn btn-primary" id="sortModalEdit" onclick="updateSort()">修改</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+<div th:replace="~{common/footer :: footer}"></div>
+</body>
+<script th:src="@{/js/security/manage.js}"></script>
+<script th:src="@{/js/security/common/article-list.js}"></script>
+<script th:src="@{/js/security/common/collect.js}"></script>
+<script type="text/javascript" th:src="@{/js/common/paging.js}"></script>
+</html>

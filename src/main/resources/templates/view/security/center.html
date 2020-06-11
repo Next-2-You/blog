@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>个人中心</title>
+    <div th:replace="~{common/baseimport :: baseimport}"></div>
+    <link rel="stylesheet" th:href="@{/css/security/common/info.css}">
+    <link rel="stylesheet" th:href="@{/css/security/common/collect.css}">
+</head>
+
+<body>
+<div th:replace="~{common/header :: header}"></div>
+<main role="main" class="flex-shrink-0">
+    <div class="container" style="margin-top: 10px">
+        <div class="row">
+            <div class="col-sm-12 col-md-3">
+                <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                    <div class="panel panel-default">
+                        <div class="panel-heading" role="tab" id="headingOne">
+                            <h4 class="panel-title">
+                                <a href="javascript:void(0)" onclick="getUserDetail()">
+                                    个人资料
+                                </a>
+                            </h4>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading" role="tab" id="headingTwo">
+                            <h4 class="panel-title">
+                                <a href="javascript:void(0)" onclick="getCollection(0,10)">
+                                    我的收藏
+                                </a>
+                            </h4>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading" role="tab" id="headingThree">
+                            <h4 class="panel-title">
+                                <a href="javascript:void(0)" onclick="privacy()">
+                                    安全隐私
+                                </a>
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-9">
+                <div id="result">
+
+                </div>
+                <div id="paging">
+
+                </div>
+                <div class="modal fade" id="addTeachingMessageModel" tabindex="-1" role="dialog"
+                     aria-labelledby="addTeachingMessageModel" aria-hidden="true">
+                    <!--最外层这个框直接用就行，id内容就是上面的p标签里data-target指代的模态框的名字-->
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h4 class="modal-title" id="myModalLabel">个人信息</h4>
+                            </div>
+                            <div class="modal-body clearfloat">
+                                <form class="form-horizontal" role="form" id="addTeachingMessageForm">
+                                    <input type="text" class="form-control hidden" id="personnelIdModal"
+                                           name="personnelId">
+                                    <input type="text" class="form-control hidden" id="personnelFaceId"
+                                           name="personnelFaceId">
+                                    <div class="clearfloat">
+                                        <div class="addTeacherLeft">
+                                            <div class="teacherImg">
+                                                <p>
+                                                    <text style="color: red">*</text>
+                                                    头像照片
+                                                </p>
+                                                <div class="addTeacherImage" id="uploadPhotos" onclick="uploadPhotos()">
+                                                    <div class="addTeacherImageL">
+                                                        <!--因为浏览器兼容性问题，如果图片的src为空的话，会导致在火狐浏览器里面图片会有边框，所以在显示数据内容的时候要把hidden移除图片才能正常显示出来-->
+                                                        <img src="" alt='' id="teacherImage" class="hidden"
+                                                             style="width: 90px;height: 120px">
+                                                        <!-- onerror="hideImg()" 这个事件是当图片的src为空 或者是 图片路径无法访问的时候会触发的时间-->
+                                                    </div>
+                                                    <p>点击上传照片</p>
+                                                </div>
+                                                <!--<input type="text" class="hidden" value="" id="teacherPicName">-->
+                                                <!--<input type="file" id="file" style="float:left; width: 250px">-->
+                                                <input type="file" class="hidden" id="file"
+                                                       accept="image/png, image/jpeg"/>
+                                                <p class="uploadPhotos hiddenWarning">请上传照片</p>
+                                            </div>
+                                            <div class="attention">带
+                                                <text style="color: red">*</text>
+                                                号内容为必填项！请如实填写。
+                                            </div>
+
+                                        </div>
+                                        <div class="addTeacherRight">
+                                            <div class="form-group teachername">
+                                                <label for="personnelNameModal" class="control-label">账号：</label>
+                                                <div class="promptDiv">
+                                                    <p class="form-control-static promptInput" id="personnelNameModal"
+                                                       name="personnelName" style="padding-left: 0px;"></p>
+                                                </div>
+                                            </div>
+                                            <p class="inputNumber hiddenWarning"></p>
+                                            <div class="form-group personnelNumber clearfloat">
+                                                <label for="personnelNumber" class="control-label">
+                                                    <text style="color: red">*</text>
+                                                    昵称：</label>
+                                                <div class="promptDiv">
+                                                    <input type="text" class="form-control promptInput"
+                                                           id="personnelNumber" name="personnelNumber"
+                                                           placeholder="请输入昵称">
+                                                    <text class="prompt">0/20</text>
+                                                </div>
+                                            </div>
+                                            <p class="inputNumber hiddenWarning">请输入正确的昵称</p>
+                                            <div class="form-group identity clearfloat">
+                                                <label for="inputBriefIntr" class="control-label">个性签名：</label>
+                                                <div class="promptDiv">
+                                                    <textarea class="form-control" rows="3" style="resize:none;"
+                                                              id="inputBriefIntr" placeholder="请输入简介"></textarea>
+                                                </div>
+                                            </div>
+                                            <div class="form-group identity clearfloat">
+                                                <label for="inputDescription" class="control-label">
+                                                    <text style="color: red">*</text>
+                                                    博客名称：</label>
+                                                <div class="promptDiv">
+                                                    <input type="text" class="form-control promptInput"
+                                                           id="inputBlogName" name="inputBlogName"
+                                                           placeholder="请输入博客名称">
+                                                    <text class="prompt">0/20</text>
+                                                </div>
+                                            </div>
+                                            <p class="inputNumber hiddenWarning">请输入正确的博客名称</p>
+                                            <div class="form-group identity clearfloat">
+                                                <label for="inputDescription" class="control-label">博客简介：</label>
+                                                <div class="promptDiv">
+                                                    <textarea class="form-control" rows="3" style="resize:none;"
+                                                              id="inputDescription" placeholder="请输入简介"></textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="" data-dismiss="modal" id="modalClose">关闭</button>
+                                <!--                    <button type="button" class="button-success" onclick="updateUserInfo()">提交更改</button>-->
+                                <button type="button" class="button-success" onclick="updateUserInfo()">提交更改</button>
+                            </div>
+                        </div><!-- /.modal-content -->
+                    </div><!-- /.modal -->
+
+                </div>
+                <div aria-hidden="true" aria-labelledby="cutImage"
+                     role="dialog" tabindex="-1" id="cutImage"
+                     class="modal fade">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h4 class="modal-title">裁剪图片</h4>
+                            </div>
+                            <div class="modal-body">
+                                <div class="imageBox">
+                                    <div class="thumbBox"></div>
+                                    <div class="spinner" style="display: none">Loading...</div>
+                                </div>
+                                <div class="cropped">
+
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn" onclick="backtoChose()">取消</button>
+                                <button type="button" class="button-success" id="btnCrop">确定</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+<!-- Modal -->
+<div class="modal fade" id="upPhoneModal" tabindex="-1" role="dialog" aria-labelledby="upPhoneModalLabel">
+    <div class="modal-dialog" role="document" style="width: 400px;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title" id="upPhoneModalLabel">修改手机号</h4>
+            </div>
+            <div class="modal-body">
+                <div class="form-horizontal">
+                    <div class="form-group">
+                        <label for="upPhone" class="col-sm-3 control-label">新手机号</label>
+                        <div class="col-sm-9">
+                            <input type="email" class="form-control" id="newPhone"style="width: 66%" placeholder="请输入新手机号！">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="upYzm" class="col-sm-3 control-label">验证码</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" id="newYzm" placeholder="请输入验证码！"
+                                   style="display: inline-block;width: 66%;">
+                            <button style="display: inline-block;" onclick="sendCode3()">发送验证码</button>
+                        </div>
+                    </div>
+                </div>
+                <input type="hidden" name="phoneToken">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn-default" data-dismiss="modal" id="phoneClose" style="background-color:ghostwhite;">关闭</button>
+                <button type="button" class="btn-primary" onclick="upPhoneBtn()" id="phoneUpd" style="background-color: #337AB7;">修改</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="upPwdModal" tabindex="-1" role="dialog" aria-labelledby="upPwdModalLabel">
+    <div class="modal-dialog" role="document" style="width: 400px;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title" id="upPwdModalLabel">修改密码</h4>
+            </div>
+            <div class="modal-body">
+                <div class="form-horizontal">
+                    <div class="form-group">
+                        <label for="upPhone" class="col-sm-3 control-label">手机号</label>
+                        <div class="col-sm-9">
+                            <input type="email" class="form-control" id="upPhone" value="13556518178" style="width: 66%" disabled>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="upYzm" class="col-sm-3 control-label">验证码</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" id="upYzm" placeholder="请输入验证码！"
+                                   style="display: inline-block;width: 66%;">
+                            <button style="display: inline-block;" onclick="sendCode2()">发送验证码</button>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="upPwd" class="col-sm-3 control-label">新密码</label>
+                        <div class="col-sm-9">
+                            <input type="password" class="form-control" id="upPwd" placeholder="请输入新密码！" style="width: 66%">
+                        </div>
+                    </div>
+                </div>
+                <input type="hidden" name="upToken">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn-default" data-dismiss="modal" id="close" style="background-color:ghostwhite;">关闭</button>
+                <button type="button" class="btn-primary" onclick="upPwdBtn()" id="update" style="background-color: #337AB7;">修改</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div th:replace="~{common/footer :: footer}"></div>
+</body>
+<script type="text/javascript" th:src="@{/js/common/common.js}"></script>
+<script th:src="@{/cropbox/cropbox.js}"></script>
+<script type="text/javascript" th:src="@{/js/common/paging.js}"></script>
+<script type="text/javascript" th:src="@{/js/security/common/info.js}"></script>
+<script type="text/javascript" th:src="@{/js/security/common/collect.js}"></script>
+<script type="text/javascript" th:src="@{/js/security/common/privacy.js}"></script>
+
+</html>

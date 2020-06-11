@@ -1,0 +1,72 @@
+/*查询结果筛选栏*/
+#search-header{
+    margin-bottom: 10px;
+}
+#search-header #sort-info>li:not(:last-child){
+    border-radius:6px;
+    overflow:auto;
+}
+/*查询结果数量*/
+#search-header div:last-child{
+    text-align: center;
+    line-height: 40px;
+}
+#search-header div:last-child span{
+    float: right;
+}
+#search-middle .list-group .list-group-item{
+    margin-bottom: 2px;
+}
+/*标题*/
+#search-middle .list-group .list-group-item .list-group-item-heading a{
+    text-decoration:none;
+}
+/*文本*/
+#search-middle .list-group .list-group-item .list-group-item-text{
+    height: 90px;
+    margin-bottom: 10px;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 5;
+    overflow: hidden;
+}
+/*头像*/
+#search-middle .list-group .list-group-item .row div:first-child a img{
+    width:45px;
+    height:45px
+}
+/*名称*/
+#search-middle .list-group .list-group-item .row>div:first-child span:nth-child(2){
+    display: inline-block;
+    margin-left: 4px;
+    width:130px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    vertical-align: middle;
+}
+/*日期时间*/
+#search-middle .list-group .list-group-item .row>div:first-child span:last-child{
+    display: inline-block;
+    height:45px;
+    line-height: 45px;
+    margin-left: 35px;
+}
+/*点赞、查看、评论*/
+#search-middle .list-group .list-group-item .row div:last-child div{
+    text-align: center;
+}
+#search-middle .list-group .list-group-item .row div:last-child span{
+    height: 45px;
+    line-height: 45px;
+    margin-right: 4px;
+    margin-left: 4px;
+}
+/*文章列表*/
+#search-middle .list-group .list-group-item:hover{
+    background-color: aliceblue;
+}
+/*分页*/
+#paging{
+    text-align: center;
+}

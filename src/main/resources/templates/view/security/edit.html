@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>编辑文章</title>
+    <div th:replace="~{common/baseimport :: baseimport}"></div>
+    <link rel="stylesheet" th:href="@{/editor/css/editormd.css}"/>
+    <link rel="stylesheet" th:href="@{/tageditor/jquery.tag-editor.css}"/>
+    <link rel="stylesheet" th:href="@{/css/security/edit.css}">
+</head>
+<body>
+<div th:replace="~{common/header :: header}"></div>
+<main role="main" class="flex-shrink-0">
+    <div class="container-fluid" style="margin-top: 10px">
+        <div class="row" id="md-editor">
+            <textarea style="display:none;" id="content"></textarea>
+        </div>
+    </div>
+    <div class="container" style="margin-bottom: 20px;">
+        <div class="row" style="margin-top: 20px">
+            <div class="col-sm-12 col-md-8">
+                <h4>标题</h4>
+                <input type="text" class="form-control" id="article-title" placeholder="请输入标题">
+            </div>
+            <div class="col-sm-12 col-md-4">
+                <h4>属性</h4>
+                <div class="col-sm-12 col-md-12">
+                    <label class="radio-inline">
+                        <input type="radio" name="overheadRadioOptions" id="overhead" value="1">顶置
+                    </label>
+                    <label class="radio-inline">
+                        <input type="radio" name="overheadRadioOptions" id="overhead-no" value="0">不顶置
+                    </label>
+                </div>
+                <div class="col-sm-12 col-md-12">
+                    <label class="radio-inline">
+                        <input type="radio" name="typeRadioOptions" id="type-open" value="0">公开
+                    </label>
+                    <label class="radio-inline">
+                        <input type="radio" name="typeRadioOptions" id="type-close" value="1">隐藏
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12 col-md-8">
+                <h4>标签</h4>
+                <textarea id="tag"></textarea>
+            </div>
+            <div class="col-sm-12 col-md-4">
+                <h4>分类</h4>
+                <select class="form-control" id="sorts">
+
+                </select>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12 col-md-8">
+                <h4>添加新分类</h4>
+                <div class="row" style="margin: 0px;padding: 0px;">
+                    <div class="col-sm-12 col-md-4" style="margin: 0px;padding: 0px;">
+                        <input type="text" class="form-control" id="new-sort" placeholder="请输入新分类">
+                    </div>
+                    <div class="col-sm-12 col-md-8" style="margin: 0px;padding: 0px;">
+                        <button type="button" class="btn btn-primary" id="add-new-sort">添加</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row" style="clear: both;overflow: hidden;">
+            <button type="button" class="btn btn-danger" id="submitBtn" style="float: right;margin-right: 15px;" onclick="checkAticle()">确认提交</button>
+        </div>
+    </div>
+</main>
+<div th:replace="~{common/footer :: footer}"></div>
+</body>
+<script th:src="@{/editor/js/editormd.js}"></script>
+<script th:src="@{/tageditor/jquery.tag-editor.js}"></script>
+<script th:src="@{/tageditor/jquery.caret.min.js}"></script>
+<script type="text/javascript" th:src="@{/js/security/edit.js}"></script>
+</html>

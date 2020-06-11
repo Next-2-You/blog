@@ -1,0 +1,241 @@
+.modal-content{
+    border-radius: 0;
+    border: none;
+}
+.modal-header{
+    background: #52d79d;
+    border: 0;
+}
+.modal-title{
+    text-align: center;
+    border: none;
+    color: #fff;
+}
+.modal-header .close{
+    cursor: pointer;
+    padding: 0 10px;
+    line-height: 1.42857143;
+}
+.modal-footer{
+    text-align: center;
+    border: none;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.modal-footer button{
+    border-radius: 0;
+    width: 90px;
+    height: 35px;
+    border-radius: 0;
+    border: 0;
+    outline:0;
+}
+.modal-footer button:hover{
+    background-color: #eee
+}
+.button-success{
+    background: #52d79d;
+    color: #ffffff;
+    margin-left: 45px;
+}
+.modal-footer .button-success:hover{
+    background: #2fc684;
+}
+#addTeachingMessageModel .upload-file .btn {
+    margin-left: 5px;
+}
+#addTeachingMessageForm{
+    margin: 0 20px;
+}
+.addTeacherLeft{
+    width: 45%;
+    float: left;
+    padding: 10px 10px 0;
+}
+.addTeacherRight{
+    width: 55%;
+    float: right;
+    padding: 12px 20px 0;
+    border-left: 1px solid #EBEBEB;
+
+}
+.addTeacherImage{
+    width: 165px;
+    border: 1px solid gray;
+    margin: 15px auto 0;
+    height: 190px;
+    position: relative;
+    overflow: hidden;
+}
+.addTeacherImage p{
+    line-height: 25px;
+    text-align: center;
+    background: #52d79d;
+    color: #fff;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin-bottom: 0;
+}
+.attention{
+    /*padding: 0 10px;*/
+    margin-top: 30px;
+}
+#addTeachingMessageForm .form-group{
+    width: 100%;
+    margin: 0 0 15px 0;
+}
+#addTeachingMessageForm .addTeacherRight .teachername{
+    /*margin-top: 20px;*/
+    /*justify-content: space-between;*/
+    margin-bottom: 23px;
+}
+#addTeachingMessageForm .personnelNumber{
+    margin-bottom: 20px;
+}
+.addTeacherLeft  input{
+    width: 70%;
+    display: inline-block;
+}
+.addTeacherRight label{
+    width: 29%;
+    text-align: right;
+}
+.addTeacherRight .modal-input, .addTeacherRight input:not([type="radio"]){
+    width: 70%;
+    float: right;
+}
+#addTeachingMessageForm .addTeacherRight .promptInput {
+    width: 100%;
+    padding-right: 45px;
+}
+.addTeacherRight .bootstrap-select{
+    width: 70% !important;
+    float: right;
+
+}
+#addTeachingMessageForm .addTeacherRight .department  .dropdown-toggle{
+    border-radius: 4px ;
+    height: 34px ;
+    margin-bottom: 0;
+    line-height: 26px ;
+}
+.addTeacherRight .form-group:nth-child(2){
+    margin-bottom: 0 !important;
+}
+.addTeacherLeft .uploadPhotos, .addTeacherLeft .uploadPhotos, .addTeacherRight p{
+    /*color: red;*/
+    margin-bottom: 7px;
+    /*line-height: 30px;*/
+    text-align: right;
+}
+.addTeacherLeft .uploadPhotos{
+    text-align: left;
+    margin-top: 10px;
+    margin-bottom: 0;
+
+}
+.addTeacherRight .department  input{
+    width: 100%;
+    float: none;
+}
+.inputName{
+    margin-bottom: 5px;
+    color: red;
+}
+#addTeachingMessageForm  .prompt{
+    position: absolute;
+    right: 5px;
+    top: 7px;
+}
+#addTeachingMessageForm .promptInput{
+    position: absolute;
+    left: 0;
+    right: 0;
+    width: 100%;
+    padding-right: 30px;
+}
+#addTeachingMessageForm .addTeacherLeft .promptDiv{
+    position: relative;
+    float: right;
+    width: 75%;
+}
+#addTeachingMessageForm .addTeacherRight .promptDiv{
+    position: relative;
+    float: right;
+    width: 70%;
+}
+.hiddenWarning{
+    display: none;
+}
+.addTeacherImageL{
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 25px;
+    background: #fff;
+}
+.imageBox
+{
+    position: relative;
+    height: 500px;
+    width: 500px;
+    border:1px solid #aaa;
+    background: #fff;
+    overflow: hidden;
+    background-repeat: no-repeat;
+    cursor:move;
+    margin: auto;
+}
+
+.imageBox .thumbBox
+{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300px;
+    height: 300px;
+    margin-top: -150px;
+    margin-left: -150px;
+    box-sizing: border-box;
+    border: 1px solid rgb(102, 102, 102);
+    box-shadow: 0 0 0 1000px rgba(0, 0, 0, 0.5);
+    background: none repeat scroll 0% 0% transparent;
+}
+
+.imageBox .spinner
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    text-align: center;
+    line-height: 400px;
+    background: rgba(0,0,0,0.7);
+}
+.tableImg{
+}
+.tableImg img{
+    margin: auto;
+}
+.modal-body{
+    border: none;
+    position: static;
+    padding: 0;
+    margin-top: 20px;
+    overflow: hidden;
+}
+.clearfloat:after {
+    display: block;
+    clear: both;
+    content: "";
+    visibility: hidden;
+    height: 0;
+}
+.clearfloat {
+    zoom: 1;
+}

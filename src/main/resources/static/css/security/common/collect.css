@@ -1,0 +1,21 @@
+#collection-show .list-group-item{
+    clear: both;
+    overflow: hidden;
+    line-height: 31.2px;
+}
+#collection-show .list-group-item h4{
+    display: inline-block;
+    float: left;
+    margin-right: 15px;
+    line-height: 31.2px;
+}
+#collection-show .list-group-item h4 a{
+    text-decoration:none;
+}
+#collection-show .list-group-item>span{
+    float: left;
+}
+#collection-show .list-group-item>a{
+    float: right;
+    text-decoration:none;
+}

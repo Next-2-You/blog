@@ -1,0 +1,42 @@
+/*名称*/
+#author-search div a{
+    text-decoration: none;
+}
+.caption h4{
+    margin-bottom: 10px;
+    text-align: center;
+}
+/*点赞、查看、评论*/
+.caption div div{
+    text-align: center;
+}
+/*标题面板*/
+#title-panel{
+    padding: 0px;
+    margin: 0 0 10px;
+    border-radius: 10.5px;
+}
+#title-panel h5{
+    line-height: 45px;
+    vertical-align: middle;
+    padding: 0;
+    margin: 0;
+    font-size: 15px;
+}
+/*搜索框 */
+.input-group{
+    margin: 5px 0;
+}
+
+/*分页*/
+#paging{
+    text-align: center;
+}
+/*每个作者板块*/
+#author-search div a:hover{
+    background-color: aliceblue;
+}
+#author-search img{
+    width: 150px;
+    height: 150px;
+}
