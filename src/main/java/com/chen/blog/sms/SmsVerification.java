@@ -21,8 +21,8 @@ import java.util.Map;
 public class SmsVerification {
 	protected static final Logger log = LoggerFactory.getLogger(SmsVerification.class);
 
-    static final String accessKeyId = "LTAI4Fj7fcRtaUW9uFMtqYnb";
-    static final String accessKeySecret = "KUHAJvSFXgF1MmnHsk54UTlVMj7rFE";
+    static final String accessKeyId = "";
+    static final String accessKeySecret = "";
 
     //官方参数
     static final String product = "Dysmsapi";
